@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+  <div class="calc-container">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button onclick="addChar('(')">(</button>
+      <button onclick="addChar(')')">)</button>
+      <button onclick="addChar('%')">%</button>
+      <button onclick="clearDisplay()">AC</button>
+      <button onclick="addChar('7')">7</button>
+      <button onclick="addChar('8')">8</button>
+      <button onclick="addChar('9')">9</button>
+      <button onclick="addChar('/')">÷</button>
+      <button onclick="addChar('4')">4</button>
+      <button onclick="addChar('5')">5</button>
+      <button onclick="addChar('6')">6</button>
+      <button onclick="addChar('*')">×</button>
+      <button onclick="addChar('1')">1</button>
+      <button onclick="addChar('2')">2</button>
+      <button onclick="addChar('3')">3</button>
+      <button onclick="addChar('-')">−</button>
+      <button onclick="addChar('0')">0</button>
+      <button onclick="addChar('.')">.</button>
+      <button class="equal" onclick="calculate()">=</button>
+      <button onclick="addChar('+')">+</button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    let display = document.getElementById('display');
+  
+    function addChar(char) {
+      if (display.innerText === "0") {
+        display.innerText = char;
+      } else {
+        display.innerText += char;
+      }
+    }
+  
+    function clearDisplay() {
+      display.innerText = "0";
+    }
+  
+    function calculate() {
+      try {
+        display.innerText = eval(display.innerText);
+      } catch (e) {
+        display.innerText = "Erro";
+      }
+    }
+  </script>
+  
+</body>
+</html>
